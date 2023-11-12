@@ -9,13 +9,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, MatToolbarModule
+    BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, MatToolbarModule, PlayerComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
