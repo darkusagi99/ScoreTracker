@@ -6,7 +6,7 @@
 	<span class="app-title">Score Tracker</span>
 	<div class="spacer"></div>
 	<!-- Settings button -->
-	<mat-button-toggle value="on" color="primary">
+	<mat-button-toggle value="on" color="primary" (click)="toggleConfig()">
 		<mat-icon>settings</mat-icon>
 	</mat-button-toggle>
 </mat-toolbar>
@@ -23,7 +23,7 @@
 		<mat-card-header>
 			<mat-card-title class="player-card-content">
 			<span class="player-card-content player-card-name ">Player</span>
-			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player">
+			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player"  *ngIf="configurationMode">
 				<mat-icon>delete</mat-icon>
 			</button>
 			</mat-card-title>
@@ -52,12 +52,12 @@
 	<!-- FAB section -->
   
 	<div class="fab-main card-container">
-      <div class="fab-button">
+      <div class="fab-button" *ngIf="configurationMode">
         <button mat-fab color="warn" aria-label="Delete All">
           <mat-icon>delete_sweep</mat-icon>
         </button>
       </div>
-      <div class="fab-button">
+      <div class="fab-button" *ngIf="configurationMode">
         <button mat-fab color="accent" aria-label="Add Player">
           <mat-icon>person_add</mat-icon>
         </button>

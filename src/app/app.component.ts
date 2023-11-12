@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'score-tracker';
+	title = 'score-tracker';
+	
+	// Flag for configuration mode
+	public configurationMode : boolean;
+  
+	// Constructor
+	constructor() {
+		this.configurationMode = false;
+	}
+	
+	// Toggle config mode
+	toggleConfig() {
+		this.configurationMode = !this.configurationMode;
+	}
+  
 }
