@@ -1,15 +1,15 @@
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<mat-toolbar color="primary">
 	
 	<!-- Application title -->
-	<span>Score Tracker</span>
+	<span class="app-title">Score Tracker</span>
 	<div class="spacer"></div>
 	<!-- Settings button -->
 	<mat-button-toggle value="on" color="primary">
-	<mat-icon>settings</mat-icon>
+		<mat-icon>settings</mat-icon>
 	</mat-button-toggle>
-</div>
+</mat-toolbar>
 
 <div class="content" role="main">
 
@@ -18,18 +18,34 @@
  
 	<!-- Test CARD -->
 	<mat-card class="player-card">
+			
+			<!-- CARD Header -->
 		<mat-card-header>
-			<mat-card-title>Shiba Inu</mat-card-title>
-			<mat-card-subtitle>Dog Breed</mat-card-subtitle>
+			<mat-card-title class="player-card-content">
+			<span class="player-card-content player-card-name ">Player</span>
+			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player">
+				<mat-icon>delete</mat-icon>
+			</button>
+			</mat-card-title>
+			<mat-card-subtitle></mat-card-subtitle>
 		</mat-card-header>
-		<mat-card-content>
-			<p>This card indeterminates progress bar.</p>
-			<p>text</p>
+		
+			<!-- CARD Body -->
+		<mat-card-content class="player-card-content">
+			<button mat-icon-button  class="player-card-valign" aria-label="Decrease Score">
+				<mat-icon>remove_circle_outline</mat-icon>
+			</button>
+			
+			<div class="spacer"></div>
+			
+			<span  class="player-card-valign player-card-score">Score : xx</span>
+			
+			<div class="spacer"></div>
+			
+			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score">
+				<mat-icon>add_circle_outline</mat-icon>
+			</button>
 		</mat-card-content>
-		<mat-card-actions>
-			<button mat-button>LIKE</button>
-			<button mat-button>SHARE</button>
-		</mat-card-actions>
 	</mat-card>
 
 
@@ -37,7 +53,7 @@
   
 	<div class="fab-main card-container">
       <div class="fab-button">
-        <button mat-fab color="primary" aria-label="Delete All">
+        <button mat-fab color="warn" aria-label="Delete All">
           <mat-icon>delete_sweep</mat-icon>
         </button>
       </div>
@@ -47,13 +63,13 @@
         </button>
       </div>
       <div class="fab-button">
-        <button mat-fab color="warn" aria-label="Pick a player">
+        <button mat-fab color="accent" aria-label="Pick a player">
           <mat-icon>live_help</mat-icon>
         </button>
       </div>
       <div class="fab-button">
         <button mat-fab aria-label="Roll Dice">
-		  <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>dice-multiple-outline</title><path d="M14 8C13.45 8 13 7.55 13 7S13.45 6 14 6C14.55 6 15 6.45 15 7C15 7.55 14.55 8 14 8M12 12V19H5V12H12M12.78 10H4.22C3.55 10 3 10.55 3 11.22V19.78C3 20.45 3.55 21 4.22 21H12.78C13.45 21 14 20.45 14 19.78V11.22C14 10.55 13.45 10 12.78 10M19.78 3H11.22C10.55 3 10 3.55 10 4.22V8H12V5H19V12H16V14H19.78C20.45 14 21 13.45 21 12.78V4.22C21 3.55 20.45 3 19.78 3M17 8C16.45 8 16 7.55 16 7S16.45 6 17 6C17.55 6 18 6.45 18 7C18 7.55 17.55 8 17 8M17 11C16.45 11 16 10.55 16 10S16.45 9 17 9C17.55 9 18 9.45 18 10C18 10.55 17.55 11 17 11M7 15C6.45 15 6 14.55 6 14S6.45 13 7 13C7.55 13 8 13.45 8 14C8 14.55 7.55 15 7 15M10 18C9.45 18 9 17.55 9 17S9.45 16 10 16C10.55 16 11 16.45 11 17C11 17.55 10.55 18 10 18" /></svg>
+		  <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 24 24"><title>dice-multiple-outline</title><path d="M14 8C13.45 8 13 7.55 13 7S13.45 6 14 6C14.55 6 15 6.45 15 7C15 7.55 14.55 8 14 8M12 12V19H5V12H12M12.78 10H4.22C3.55 10 3 10.55 3 11.22V19.78C3 20.45 3.55 21 4.22 21H12.78C13.45 21 14 20.45 14 19.78V11.22C14 10.55 13.45 10 12.78 10M19.78 3H11.22C10.55 3 10 3.55 10 4.22V8H12V5H19V12H16V14H19.78C20.45 14 21 13.45 21 12.78V4.22C21 3.55 20.45 3 19.78 3M17 8C16.45 8 16 7.55 16 7S16.45 6 17 6C17.55 6 18 6.45 18 7C18 7.55 17.55 8 17 8M17 11C16.45 11 16 10.55 16 10S16.45 9 17 9C17.55 9 18 9.45 18 10C18 10.55 17.55 11 17 11M7 15C6.45 15 6 14.55 6 14S6.45 13 7 13C7.55 13 8 13.45 8 14C8 14.55 7.55 15 7 15M10 18C9.45 18 9 17.55 9 17S9.45 16 10 16C10.55 16 11 16.45 11 17C11 17.55 10.55 18 10 18" /></svg>
         </button>
       </div>
     </div>

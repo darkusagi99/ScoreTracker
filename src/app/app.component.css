@@ -12,6 +12,11 @@ p {
 	margin: 0;
 }
 
+.app-title{
+	padding-left : 10px;
+	font-size:32px;
+}
+
 .toolbar {
     position: absolute;
     top: 0;
@@ -20,7 +25,6 @@ p {
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
     color: white;
     font-weight: 600;
 }
@@ -75,7 +79,7 @@ p {
 }
 
 svg.material-icons {
-	height: 24px;
+	height: 38px;
 	width: auto;
 }
 
@@ -93,4 +97,26 @@ svg.material-icons:not(:last-child) {
 
 .player-card {
 	width: 100%;
+	align-items: center;
+}
+
+
+.player-card-valign {
+	vertical-align: middle;
+}
+
+.player-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.player-card-score {
+	font-size:20px;
+}
+
+
+.player-card-name {
+	font-size:32px;
 }
