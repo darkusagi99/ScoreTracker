@@ -20,4 +20,13 @@ export class PlayerComponent {
 	
 	players = PLAYERS;
 	
+	
+	decreaseScore(player : Player) : void {
+		player.score--;
+	}
+	
+	increaseScore(player : Player) : void {
+		player.score++;
+	}
+	
 }

@@ -15,7 +15,7 @@
 			<!-- CARD Body -->
 		<mat-card-content class="player-card-content" layout="row" layout-align="space-between center">
 		
-			<button mat-icon-button  class="player-card-valign" aria-label="Decrease Score">
+			<button mat-icon-button  class="player-card-valign" aria-label="Decrease Score" (click)="decreaseScore(player)">
 				<mat-icon>remove_circle_outline</mat-icon>
 			</button>
 			
@@ -23,7 +23,7 @@
 			<span  class="player-card-valign player-card-score">Score : {{player.score}}</span>
 			
 			
-			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score">
+			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score" (click)="increaseScore(player)">
 				<mat-icon>add_circle_outline</mat-icon>
 			</button>
 
