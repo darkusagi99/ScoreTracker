@@ -5,7 +5,7 @@
 		<mat-card-header>
 			<mat-card-title class="player-card-content">
 			<span class="player-card-content player-card-name ">{{player.name}}</span>
-			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player"  *ngIf="configurationMode">
+			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player"  *ngIf="configurationMode"  (click)="removePlayer(player)">
 				<mat-icon>delete</mat-icon>
 			</button>
 			</mat-card-title>
