@@ -17,39 +17,6 @@
 
 	<app-player class="player-card"  [configurationMode]="configurationMode" />
  
-	<!-- Test CARD -->
-	<mat-card class="player-card">
-			
-			<!-- CARD Header -->
-		<mat-card-header>
-			<mat-card-title class="player-card-content">
-			<span class="player-card-content player-card-name ">Player</span>
-			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player"  *ngIf="configurationMode">
-				<mat-icon>delete</mat-icon>
-			</button>
-			</mat-card-title>
-			<mat-card-subtitle></mat-card-subtitle>
-		</mat-card-header>
-		
-			<!-- CARD Body -->
-		<mat-card-content class="player-card-content" layout="row" layout-align="space-between center">
-		
-			<button mat-icon-button  class="player-card-valign" aria-label="Decrease Score">
-				<mat-icon>remove_circle_outline</mat-icon>
-			</button>
-			
-			
-			<span  class="player-card-valign player-card-score">Score : xx</span>
-			
-			
-			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score">
-				<mat-icon>add_circle_outline</mat-icon>
-			</button>
-
-		</mat-card-content>
-	</mat-card>
-
-
 	<!-- FAB section -->
   
 	<div class="fab-main card-container">

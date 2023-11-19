@@ -1,9 +1,10 @@
-	<mat-card class="player-card">
+
+	<mat-card class="player-card" *ngFor="let player of players">
 			
 			<!-- CARD Header -->
 		<mat-card-header>
 			<mat-card-title class="player-card-content">
-			<span class="player-card-content player-card-name ">Player</span>
+			<span class="player-card-content player-card-name ">{{player.name}}</span>
 			<button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete Player"  *ngIf="configurationMode">
 				<mat-icon>delete</mat-icon>
 			</button>
@@ -19,7 +20,7 @@
 			</button>
 			
 			
-			<span  class="player-card-valign player-card-score">Score : xx</span>
+			<span  class="player-card-valign player-card-score">Score : {{player.score}}</span>
 			
 			
 			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score">
@@ -28,3 +29,4 @@
 
 		</mat-card-content>
 	</mat-card>
+
