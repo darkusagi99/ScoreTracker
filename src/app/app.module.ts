@@ -7,19 +7,26 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
+
 import {MatSnackBarModule} from '@angular/material/snack-bar'
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { PlayerComponent } from './player/player.component';
+import { CreatePlayerDialogComponent } from './create-player-dialog/create-player-dialog.component';
+import { UpdateScoreDialogComponent } from './update-score-dialog/update-score-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpdateScoreDialogComponent
   ],
   imports: [
     BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, 
-    MatToolbarModule, PlayerComponent, MatSnackBarModule, BrowserAnimationsModule
+    MatToolbarModule, PlayerComponent, MatSnackBarModule, BrowserAnimationsModule, MatDialogModule,
+    CreatePlayerDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

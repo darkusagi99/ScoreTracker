@@ -30,6 +30,17 @@ export class PlayerComponent {
 	increaseScore(player : Player) : void {
 		player.score++;
 	}
+
+	// Update player score (number picker) - TODO
+	updateScore(player : Player) : void {
+		alert("update score");
+		
+		/*this.dialog.open(CreatePlayerDialogComponent, {
+			width: '250px',
+			data: {}
+		});*/
+
+	}
 	
 	// Remove a player from the list
 	removePlayer(player : Player) : void {
