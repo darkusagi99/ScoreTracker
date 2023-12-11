@@ -15,13 +15,13 @@
 
   <input type="hidden" #setting.status>
 
-	<app-player class="player-card"  [configurationMode]="configurationMode" />
+	<app-player class="player-card" #playerList  [configurationMode]="configurationMode" />
  
 	<!-- FAB section -->
   
 	<div class="fab-main card-container">
       <div class="fab-button" *ngIf="configurationMode">
-        <button mat-fab color="warn" aria-label="Delete All">
+        <button mat-fab color="warn" aria-label="Delete All" (click)="removeAllPlayers()">
           <mat-icon>delete_sweep</mat-icon>
         </button>
       </div>

@@ -46,7 +46,7 @@ export class PlayerComponent {
 	}
 	
 	// Delete all players from the list
-	removeAllPlayers(player : Player) : void {
+	removeAllPlayers() : void {
 		this.players.splice(0);
 	}
 	
