@@ -59,10 +59,10 @@ export class PlayerComponent {
 	pickPlayer() : string {
 		// Pick random player ID
 		var playersLength = this.players.length;
+		if (playersLength == 0) { return ""; }
 		var pickedPlayer = Math.floor(Math.random() * playersLength);
 
 		// Extract player name
-
 		return this.players[pickedPlayer].name;
 	}
 	

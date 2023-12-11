@@ -36,7 +36,9 @@ export class AppComponent {
 	// Pick a player (random)
 	pickPlayer() : void {
 		var playerName : string = this.playerComponent.pickPlayer();
-		this.snackBar.open(playerName, "Fermer", { duration: 7000, });
+		if (playerName.length > 0) {
+			this.snackBar.open(playerName, "Fermer", { duration: 7000, });
+		}
 	}
   
 }
