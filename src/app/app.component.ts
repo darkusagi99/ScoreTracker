@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 // Add player component for sub-child
 import { PlayerComponent } from './player/player.component';
@@ -18,7 +19,7 @@ export class AppComponent {
 	public configurationMode : boolean;
   
 	// Constructor
-	constructor() {
+	constructor(public snackBar: MatSnackBar) {
 		this.configurationMode = false;
 	}
 	
@@ -30,6 +31,12 @@ export class AppComponent {
 	// Remove all players
 	removeAllPlayers() : void {
 		this.playerComponent.removeAllPlayers();
+	}
+
+	// Pick a player (random)
+	pickPlayer() : void {
+		var playerName : string = this.playerComponent.pickPlayer();
+		this.snackBar.open(playerName, "Fermer", { duration: 7000, });
 	}
   
 }

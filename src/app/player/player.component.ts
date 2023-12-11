@@ -54,5 +54,16 @@ export class PlayerComponent {
 	addPlayer(player : Player) : void {
 	
 	}
+
+	// Pick a player from the list (random)
+	pickPlayer() : string {
+		// Pick random player ID
+		var playersLength = this.players.length;
+		var pickedPlayer = Math.floor(Math.random() * playersLength);
+
+		// Extract player name
+
+		return this.players[pickedPlayer].name;
+	}
 	
 }
