@@ -22,9 +22,4 @@ export class UpdateScoreDialogComponent {
     public dialogRef: MatDialogRef<UpdateScoreDialogComponent>,
       @Inject(MAT_DIALOG_DATA) public data: string,
   ) {}
-
-  // Dismiss dialog if no validation
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 }

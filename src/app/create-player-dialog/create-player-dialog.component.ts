@@ -20,10 +20,4 @@ export class CreatePlayerDialogComponent {
     public dialogRef: MatDialogRef<CreatePlayerDialogComponent>,
       @Inject(MAT_DIALOG_DATA) public data: string,
   ) {}
-
-  // Dismiss dialog if no validation
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
 }
