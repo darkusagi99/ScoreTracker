@@ -1,15 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-import {
-	MatDialog,
-	MAT_DIALOG_DATA,
-	MatDialogRef,
-	MatDialogTitle,
-	MatDialogContent,
-	MatDialogActions,
-	MatDialogClose,
-  } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 // Add player component for sub-child
 import { PlayerComponent } from './player/player.component';

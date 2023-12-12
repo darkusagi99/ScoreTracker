@@ -9,15 +9,7 @@ import { Player } from '../player';
 import {PLAYERS} from '../mock-player';
 import { UpdateScoreDialogComponent } from '../update-score-dialog/update-score-dialog.component';
 
-import {
-	MatDialog,
-	MAT_DIALOG_DATA,
-	MatDialogRef,
-	MatDialogTitle,
-	MatDialogContent,
-	MatDialogActions,
-	MatDialogClose,
-  } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-player',
