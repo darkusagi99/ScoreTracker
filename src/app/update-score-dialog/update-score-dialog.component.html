@@ -1,11 +1,13 @@
-<h1 mat-dialog-title>Changer Score</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Score</mat-label>
-    <input matInput [(ngModel)]="data">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Annuler</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+<div class="update-score-dialog">
+    <h1 mat-dialog-title class="update-score-dialog-content">Changer Score</h1>
+    <div mat-dialog-content class="update-score-dialog-content">
+    <mat-form-field class="update-score-dialog-content">
+        <mat-label>Score</mat-label>
+        <input matInput [(ngModel)]="data">
+    </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="update-score-dialog-content">
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button  color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </div>
 </div>

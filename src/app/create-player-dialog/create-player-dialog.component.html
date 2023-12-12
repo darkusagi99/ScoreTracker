@@ -1,12 +1,14 @@
-<h1 mat-dialog-title>Ajouter joueur</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Nom joueur</mat-label>
-    <input matInput [(ngModel)]="data">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Annuler</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+<div class="player-dialog">
+  <h1 mat-dialog-title class="player-dialog-content">Ajouter joueur</h1>
+  <div mat-dialog-content class="player-dialog-content">
+    <mat-form-field  class="player-dialog-content">
+      <mat-label>Nom joueur</mat-label>
+      <input matInput [(ngModel)]="data">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="player-dialog-content">
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button  color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>
 </div>
 
