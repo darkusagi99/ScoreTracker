@@ -7,6 +7,17 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { Player } from '../player';
 import {PLAYERS} from '../mock-player';
+import { UpdateScoreDialogComponent } from '../update-score-dialog/update-score-dialog.component';
+
+import {
+	MatDialog,
+	MAT_DIALOG_DATA,
+	MatDialogRef,
+	MatDialogTitle,
+	MatDialogContent,
+	MatDialogActions,
+	MatDialogClose,
+  } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-player',
@@ -20,6 +31,12 @@ export class PlayerComponent {
 	
 	// Player list
 	players = PLAYERS;
+	nextId : number = 1;
+
+	// Constructor
+	constructor(public dialog: MatDialog) {
+		this.configurationMode = false;
+	}
 	
 	// Decrease player score
 	decreaseScore(player : Player) : void {
@@ -33,12 +50,20 @@ export class PlayerComponent {
 
 	// Update player score (number picker) - TODO
 	updateScore(player : Player) : void {
-		alert("update score");
-		
-		/*this.dialog.open(CreatePlayerDialogComponent, {
-			width: '250px',
-			data: {}
-		});*/
+
+		// Open Dialog
+		const dialogRef = this.dialog.open(UpdateScoreDialogComponent, {
+			width: '90%',
+			data: player.score
+		});
+
+		// Manage return value
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != undefined && result.trim().length > 0) {
+				// Update player score
+				player.score = result;
+			}
+		});
 
 	}
 	
@@ -62,8 +87,9 @@ export class PlayerComponent {
 	}
 	
 	// Add a player in the list
-	addPlayer(player : Player) : void {
-	
+	addPlayer(playerName : string) : void {
+		this.players.push({ id: this.nextId, name: playerName, score: 1 });
+		this.nextId++;
 	}
 
 	// Pick a player from the list (random)

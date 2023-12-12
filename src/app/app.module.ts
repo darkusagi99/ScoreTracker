@@ -20,13 +20,12 @@ import { UpdateScoreDialogComponent } from './update-score-dialog/update-score-d
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UpdateScoreDialogComponent
+    AppComponent
   ],
   imports: [
     BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, 
     MatToolbarModule, PlayerComponent, MatSnackBarModule, BrowserAnimationsModule, MatDialogModule,
-    CreatePlayerDialogComponent
+    CreatePlayerDialogComponent, UpdateScoreDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,11 @@
-<p>update-score-dialog works!</p>
+<h1 mat-dialog-title>Changer Score</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Score</mat-label>
+    <input matInput [(ngModel)]="data">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

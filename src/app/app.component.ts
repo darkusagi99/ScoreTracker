@@ -57,17 +57,15 @@ export class AppComponent {
 
 		// Open Dialog
 		const dialogRef = this.dialog.open(CreatePlayerDialogComponent, {
-			width: '250px',
+			width: '90%',
 			data: ""
 		});
 
 		// Manage return value
 		dialogRef.afterClosed().subscribe(result => {
 			if (result != undefined && result.trim().length > 0) {
-
-				// TODO add code for player creation
-				console.log('The dialog was closed');
-				alert(result);
+				// Add player in the list
+				this.playerComponent.addPlayer(result);
 			}
 		});
 
@@ -75,7 +73,7 @@ export class AppComponent {
 
 	// Roll Dice button action - TODO
 	rollDice() : void {
-		alert("rollDice");
+		alert("rollDice - To implement");
 
 	}
   
