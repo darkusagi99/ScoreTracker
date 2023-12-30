@@ -8,7 +8,6 @@ export class PlayerService {
 
 	// Player list
 	players : Player[] = [];
-	nextId : number = 1;
   private storageKey : string = "PLAYER_LIST";
 
   constructor() { 
@@ -72,8 +71,7 @@ export class PlayerService {
 
 	// Add a player in the list
 	addPlayer(playerName : string) : void {
-		this.players.push({ id: this.nextId, name: playerName, score: 1 });
-		this.nextId++;
+		this.players.push({ id: crypto.randomUUID(), name: playerName, score: 1 });
     this.saveData();
 	}
 
