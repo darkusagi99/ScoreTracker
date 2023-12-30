@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 // Add player component for sub-child
 import { PlayerComponent } from './player/player.component';
 import { CreatePlayerDialogComponent } from './create-player-dialog/create-player-dialog.component';
+import { DiceComponent } from './dice/dice.component';
+import { DiceService } from './dice.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,7 @@ export class AppComponent {
 	public configurationMode : boolean;
   
 	// Constructor
-	constructor(public snackBar: MatSnackBar, public dialog: MatDialog) {
+	constructor(public snackBar: MatSnackBar, public dialog: MatDialog, private diceService : DiceService) {
 		this.configurationMode = false;
 	}
 	
@@ -44,7 +46,7 @@ export class AppComponent {
 		}
 	}
 
-	// Add a player action - TODO
+	// Add a player action
 	addPlayer() : void {
 
 		// Open Dialog
@@ -64,8 +66,21 @@ export class AppComponent {
 	}
 
 	// Roll Dice button action - TODO
-	rollDice() : void {
-		alert("rollDice - To implement");
+	openDice() : void {
+
+		if (this.configurationMode == false) {
+			
+			alert("Mode normal");
+
+		} else {
+
+			alert("Mode Config");
+
+		}
+		// If only one dice list implemented and not configuration mode -> Roll dice list
+		alert("Liste de dés : " + this.diceService.getDiceList().length);
+
+		// Else -> Open dice list
 
 	}
   

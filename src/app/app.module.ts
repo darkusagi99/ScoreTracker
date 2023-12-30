@@ -17,10 +17,12 @@ import {MatCardModule} from '@angular/material/card';
 import { PlayerComponent } from './player/player.component';
 import { CreatePlayerDialogComponent } from './create-player-dialog/create-player-dialog.component';
 import { UpdateScoreDialogComponent } from './update-score-dialog/update-score-dialog.component';
+import { DiceComponent } from './dice/dice.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DiceComponent
   ],
   imports: [
     BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, 

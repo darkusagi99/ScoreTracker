@@ -6,10 +6,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 
 import { Player } from '../player';
-import {PLAYERS} from '../mock-player';
 import { UpdateScoreDialogComponent } from '../update-score-dialog/update-score-dialog.component';
 
 import { MatDialog } from '@angular/material/dialog';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-player',
@@ -22,25 +22,25 @@ export class PlayerComponent {
 	@Input() configurationMode = false;
 	
 	// Player list
-	players = PLAYERS;
-	nextId : number = 1;
+	players : Player[] = [];
 
 	// Constructor
-	constructor(public dialog: MatDialog) {
+	constructor(public dialog: MatDialog, public playerService : PlayerService) {
 		this.configurationMode = false;
+		this.players = this.playerService.getPlayers();
 	}
 	
 	// Decrease player score
 	decreaseScore(player : Player) : void {
-		player.score--;
+		this.playerService.decreaseScore(player);
 	}
 	
 	// Increate player score
 	increaseScore(player : Player) : void {
-		player.score++;
+		this.playerService.increaseScore(player);
 	}
 
-	// Update player score (number picker) - TODO
+	// Update player score (number picker)
 	updateScore(player : Player) : void {
 
 		// Open Dialog
@@ -51,9 +51,9 @@ export class PlayerComponent {
 
 		// Manage return value
 		dialogRef.afterClosed().subscribe(result => {
-			if (result != undefined && result.trim().length > 0) {
+			if (result != undefined && result.trim().length > 0 && !isNaN(result)) {
 				// Update player score
-				player.score = result;
+				this.playerService.updateScore(player, result);
 			}
 		});
 
@@ -61,38 +61,22 @@ export class PlayerComponent {
 	
 	// Remove a player from the list
 	removePlayer(player : Player) : void {
-		// Find index of player
-		const indexOfPlayer = this.players.findIndex((object) => {
-		  return object.id === player.id;
-		});
-	
-		// Deletion itself
-		if (indexOfPlayer !== -1) {
-			this.players.splice(indexOfPlayer, 1);
-		}
-	
+		this.playerService.removePlayer(player);
 	}
 	
 	// Delete all players from the list
 	removeAllPlayers() : void {
-		this.players.splice(0);
+		this.playerService.removeAllPlayers();
 	}
 	
 	// Add a player in the list
 	addPlayer(playerName : string) : void {
-		this.players.push({ id: this.nextId, name: playerName, score: 1 });
-		this.nextId++;
+		this.playerService.addPlayer(playerName);
 	}
 
 	// Pick a player from the list (random)
 	pickPlayer() : string {
-		// Pick random player ID
-		var playersLength = this.players.length;
-		if (playersLength == 0) { return ""; }
-		var pickedPlayer = Math.floor(Math.random() * playersLength);
-
-		// Extract player name
-		return this.players[pickedPlayer].name;
+		return this.playerService.pickPlayer();
 	}
 	
 }
