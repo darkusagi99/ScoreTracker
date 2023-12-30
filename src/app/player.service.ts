@@ -8,71 +8,71 @@ export class PlayerService {
 
 	// Player list
 	players : Player[] = [];
-  private storageKey : string = "PLAYER_LIST";
+  	private storageKey : string = "PLAYER_LIST";
 
-  constructor() { 
-    this.loadData();
-  }
+	constructor() { 
+		this.loadData();
+	}
 
-  private saveData() {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.players));
-  }
+	private saveData() {
+	localStorage.setItem(this.storageKey, JSON.stringify(this.players));
+	}
 
-  private loadData() {
-    var tmpStorage = localStorage.getItem(this.storageKey);
-    if (tmpStorage != null) {
-      this.players = JSON.parse(tmpStorage);
-    }
-  }
+	private loadData() {
+	var tmpStorage = localStorage.getItem(this.storageKey);
+	if (tmpStorage != null) {
+	this.players = JSON.parse(tmpStorage);
+	}
+	}
 
-  public getPlayers() {
-    return this.players;
-  }
+	public getPlayers() {
+	return this.players;
+	}
 
-  // Decrease player score
+	// Decrease player score
 	decreaseScore(player : Player) : void {
 		player.score--;
-    this.saveData();
+	this.saveData();
 	}
-	
+
 	// Increate player score
 	increaseScore(player : Player) : void {
 		player.score++;
-    this.saveData();
+	this.saveData();
 	}
-	
+
 	// update player score
 	updateScore(player : Player, newScore : number) : void {
 		player.score = newScore;
-    this.saveData();
+	this.saveData();
 	}
 
-  	// Remove a player from the list
+	// Remove a player from the list
 	removePlayer(player : Player) : void {
 		// Find index of player
 		const indexOfPlayer = this.players.findIndex((object) => {
-		  return object.id === player.id;
+		return object.id === player.id;
 		});
-	
+
 		// Deletion itself
 		if (indexOfPlayer !== -1) {
 			this.players.splice(indexOfPlayer, 1);
 		}
 
-    this.saveData();
-	
+		this.saveData();
+
 	}
-	
+
 	// Delete all players from the list
 	removeAllPlayers() : void {
 		this.players.splice(0);
-    this.saveData();
+	this.saveData();
 	}
 
 	// Add a player in the list
 	addPlayer(playerName : string) : void {
 		this.players.push({ id: crypto.randomUUID(), name: playerName, score: 1 });
-    this.saveData();
+	this.saveData();
 	}
 
 	// Pick a player from the list (random)

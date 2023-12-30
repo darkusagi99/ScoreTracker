@@ -1,5 +1,5 @@
 export interface Dice {
-	id: number;
+	id: string;
 	min: number;
 	max: number;
 }

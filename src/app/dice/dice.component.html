@@ -3,7 +3,7 @@
 <button mat-icon-button  class="player-card-valign" aria-label="Add Dice List"  *ngIf="configurationMode">
     <mat-icon>add_circle_outline</mat-icon>
 </button>
-<mat-card class="dice-List-card" *ngFor="let currentDiceList of diceLists">
+<mat-card class="dice-List-card" *ngFor="let currentDiceBox of diceLists">
                 
     <!-- CARD Header -->
     <mat-card-header>
@@ -20,7 +20,7 @@
         <!-- CARD Body -->
     <mat-card-content class="player-card-content" layout="row" layout-align="space-between center">
 
-        <mat-card class="dice" *ngFor="let currentDice of currentDiceList">
+        <mat-card class="dice" *ngFor="let currentDice of currentDiceBox.diceList">
                 <!-- CARD Body -->
             <mat-card-content class="player-card-content" layout="row" layout-align="space-between center">
                 <span  class="player-card-valign player-card-score"  >{{diceService.getDiceLabel(currentDice)}}</span>

@@ -1,53 +1,135 @@
 import { Injectable } from '@angular/core';
 import { Dice } from './dice';
-import { DICE_LISTS } from './mock-dice';
+import { DiceBox } from './diceBox';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiceService {
   // Dice List
-  DiceList : Dice[][] = DICE_LISTS; //[];
+  diceList : DiceBox[] = [];
+  private storageKey : string = "DICE_LIST";
 
-  constructor() { }
+  constructor() { 
+    this.loadData();
+  }
 
-    // getDiceList
-    getDiceList() : Dice[][] {
-      return this.DiceList;
+  private saveData() {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.diceList));
+  }
+
+  private loadData() {
+    var tmpStorage = localStorage.getItem(this.storageKey);
+    if (tmpStorage != null) {
+      this.diceList = JSON.parse(tmpStorage);
+    }
+  }
+
+  // getDiceList
+  getDiceList() : DiceBox[] {
+    return this.diceList;
+  }
+
+  // GetDiceLabel
+  getDiceLabel(dice : Dice) : string {
+    if (dice.min == 1) {
+      return "d" + dice.max;
+    } else {
+      return "d" + dice.min + "-" + dice.max;
+    }
+  }
+
+  // Add a new List
+  addDiceList() : void {
+    this.diceList.push({id : crypto.randomUUID(), diceList: []});
+    this.saveData();
+  }
+
+  // Add a dice in a list
+  addDice(diceBox : DiceBox, minValue : number, maxValue : number) : void {
+    // Search diceBox
+    const indexOfBox = this.getBoxIndex(diceBox);
+
+    // Add Dice in the list itself
+    if (indexOfBox !== -1) {
+      this.diceList.at(indexOfBox)?.diceList.push({id : crypto.randomUUID(), min : minValue, max : maxValue});
     }
 
-    // GetDiceLabel
-    getDiceLabel(dice : Dice) : string {
-      if (dice.min == 1) {
-        return "d" + dice.max;
-      } else {
-        return "d" + dice.min + "-" + dice.max;
+    this.saveData();
+  }
+
+  // Remove a list
+  removeDiceBox(diceBox : DiceBox) : void {
+    // Search diceBox
+    const indexOfBox = this.getBoxIndex(diceBox);
+
+    // Deletion itself
+    if (indexOfBox !== -1) {
+      this.diceList.splice(indexOfBox, 1);
+    }
+
+    this.saveData();
+  }
+
+  // Remove a dice in a list
+  removeDice(diceBox : DiceBox, dice : Dice) : void {
+    // Search diceBox
+    const indexOfBox = this.getBoxIndex(diceBox);
+
+    // Remove Dice in the list itself
+    if (indexOfBox !== -1) {
+      const indexOfDice =  this.diceList.at(indexOfBox)?.diceList.findIndex((object) => {
+        return object.id === dice.id;
+      });
+
+      if (indexOfDice && indexOfDice !== -1) {
+        this.diceList.at(indexOfBox)?.diceList.splice(indexOfDice, 1);
       }
     }
 
-    // Add a new List - TODO
-    addDiceList() : void {
-      this.DiceList.push([]);
+    this.saveData();
+  }
+
+  // Roll the dices from a list
+  rollDiceList(diceBox : DiceBox) : string {
+
+    // Roll results
+    var rollResults : string = "Tirage : ";
+    var rollTotal : number = 0;
+    var rollList : string = "";
+
+    var tmpScale : number = 0;
+    var currentResult : number = 0;
+
+    // Search diceBox
+    const indexOfBox = this.getBoxIndex(diceBox);
+
+    // Get the box and loop on it
+    const tmpList = this.diceList.at(indexOfBox)?.diceList;
+    if(tmpList) {
+      for(var currentDice of tmpList) {
+        // For each dice, get a random value and add to results
+        tmpScale = currentDice.max - currentDice.min + 1;
+        currentResult = Math.floor(Math.random() * tmpScale);
+        currentResult += currentDice.min;
+
+        rollTotal += currentResult;
+        rollList = rollList + "  " + currentResult.toString() + "  ";
+
+      }
     }
-  
-    // Add a dice in a list - TODO
-    addDice() : void {
-      //this.DiceList.
-    }
-  
-    // Remove a list - TODO
-    removeDiceList() : void {
-  
-    }
-  
-    // Remove a dice in a list - TODO
-    removeDice() : void {
-  
-    }
-  
-    // Roll the dices from a list - TODO
-    rollDiceList() : void {
-  
-    }
+
+    // Return result
+    return rollResults + rollTotal.toString() + " (" + rollList.trim() + ")";
+
+  }
+
+  // Private utility method - Find DiceBox
+  private getBoxIndex(diceBox : DiceBox) : any {
+    // Find index of diceBox
+    return this.diceList.findIndex((object) => {
+      return object.id === diceBox.id;
+    });
+  }
 
 }

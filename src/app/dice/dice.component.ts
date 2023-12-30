@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 import { Dice } from '../dice';
-import { DICE_LISTS } from '../mock-dice';
 import { DiceService } from '../dice.service';
+import { DiceBox } from '../diceBox';
 
 @Component({
   selector: 'app-dice',
@@ -12,7 +12,7 @@ import { DiceService } from '../dice.service';
 export class DiceComponent {
   @Input() configurationMode = false;
 
-  diceLists : Dice[][];
+  diceLists : DiceBox[];
 
   // Constructor
   constructor(public diceService : DiceService) {
