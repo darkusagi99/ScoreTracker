@@ -1,6 +1,6 @@
 
 
-<button mat-icon-button  class="player-card-valign" aria-label="Add Dice List"  *ngIf="configurationMode">
+<button mat-icon-button  class="player-card-valign" aria-label="Add Dice List"  *ngIf="configurationMode"  (click)="addDiceBox()">
     <mat-icon>add_circle_outline</mat-icon>
 </button>
 <mat-card class="dice-List-card" *ngFor="let currentDiceBox of diceLists">
@@ -8,10 +8,10 @@
     <!-- CARD Header -->
     <mat-card-header>
         <mat-card-title class="player-card-content">
-        <button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete DiceList"  *ngIf="configurationMode">
+        <button mat-icon-button  color="warn" class="player-card-valign" aria-label="Delete DiceList"  *ngIf="configurationMode" (click)="removeDiceBox(currentDiceBox)">
             <mat-icon>delete</mat-icon>
         </button>
-        <button mat-icon-button  class="player-card-valign" aria-label="Add Dice"  *ngIf="configurationMode">
+        <button mat-icon-button  class="player-card-valign" aria-label="Add Dice" *ngIf="configurationMode">
             <mat-icon>add_circle_outline</mat-icon>
         </button>
         </mat-card-title>

@@ -18,6 +18,7 @@ import { PlayerComponent } from './player/player.component';
 import { CreatePlayerDialogComponent } from './create-player-dialog/create-player-dialog.component';
 import { UpdateScoreDialogComponent } from './update-score-dialog/update-score-dialog.component';
 import { DiceComponent } from './dice/dice.component';
+import { CreateDiceDialogComponent } from './create-dice-dialog/create-dice-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { DiceComponent } from './dice/dice.component';
   imports: [
     BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, 
     MatToolbarModule, PlayerComponent, MatSnackBarModule, BrowserAnimationsModule, MatDialogModule,
-    CreatePlayerDialogComponent, UpdateScoreDialogComponent
+    CreatePlayerDialogComponent, UpdateScoreDialogComponent, CreateDiceDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

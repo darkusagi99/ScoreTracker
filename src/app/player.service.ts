@@ -15,36 +15,37 @@ export class PlayerService {
 	}
 
 	private saveData() {
-	localStorage.setItem(this.storageKey, JSON.stringify(this.players));
+		localStorage.setItem(this.storageKey, JSON.stringify(this.players));
 	}
 
 	private loadData() {
-	var tmpStorage = localStorage.getItem(this.storageKey);
-	if (tmpStorage != null) {
-	this.players = JSON.parse(tmpStorage);
-	}
+		var tmpStorage = localStorage.getItem(this.storageKey);
+
+		if (tmpStorage != null) {
+			this.players = JSON.parse(tmpStorage);
+		}
 	}
 
 	public getPlayers() {
-	return this.players;
+		return this.players;
 	}
 
 	// Decrease player score
 	decreaseScore(player : Player) : void {
 		player.score--;
-	this.saveData();
+		this.saveData();
 	}
 
 	// Increate player score
 	increaseScore(player : Player) : void {
 		player.score++;
-	this.saveData();
+		this.saveData();
 	}
 
 	// update player score
 	updateScore(player : Player, newScore : number) : void {
 		player.score = newScore;
-	this.saveData();
+		this.saveData();
 	}
 
 	// Remove a player from the list
@@ -66,13 +67,13 @@ export class PlayerService {
 	// Delete all players from the list
 	removeAllPlayers() : void {
 		this.players.splice(0);
-	this.saveData();
+		this.saveData();
 	}
 
 	// Add a player in the list
 	addPlayer(playerName : string) : void {
 		this.players.push({ id: crypto.randomUUID(), name: playerName, score: 1 });
-	this.saveData();
+		this.saveData();
 	}
 
 	// Pick a player from the list (random)

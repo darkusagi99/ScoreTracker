@@ -40,7 +40,7 @@ export class DiceService {
   }
 
   // Add a new List
-  addDiceList() : void {
+  addDiceBox() : void {
     this.diceList.push({id : crypto.randomUUID(), diceList: []});
     this.saveData();
   }
