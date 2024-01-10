@@ -98,6 +98,7 @@ svg.material-icons:not(:last-child) {
 .player-card {
 	width: 100%;
 	align-items: center;
+    margin-bottom: 10px;
 }
 
 

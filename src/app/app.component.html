@@ -30,7 +30,7 @@
           <mat-icon>person_add</mat-icon>
         </button>
       </div>
-      <div class="fab-button">
+      <div class="fab-button" *ngIf="!configurationMode">
         <button mat-fab color="accent" aria-label="Pick a player" (click)="pickPlayer()">
           <mat-icon>live_help</mat-icon>
         </button>
