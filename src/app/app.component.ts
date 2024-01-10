@@ -68,19 +68,23 @@ export class AppComponent {
 	// Roll Dice button action - TODO
 	openDice() : void {
 
-		if (this.configurationMode == false) {
-			
+		if (this.configurationMode == false && this.diceService.getDiceList().length == 1) {
+			// Only one dice roll possible > Show result
 			alert("Mode normal");
+			// Get dice result
+			//diceService.rollDiceList;
+
+			// Display result in snackbar
+			this.snackBar.open("Roll ONE", "Fermer", { duration: 7000, })
 
 		} else {
-
+			// Show Dice modal
+			const dialogRef = this.dialog.open(DiceComponent, {
+				width : '90%'
+			})
 			alert("Mode Config");
 
 		}
-		// If only one dice list implemented and not configuration mode -> Roll dice list
-		alert("Liste de dés : " + this.diceService.getDiceList().length);
-
-		// Else -> Open dice list
 
 	}
   

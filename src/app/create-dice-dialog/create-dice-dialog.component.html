@@ -1,1 +1,17 @@
-<p>create-dice-dialog works!</p>
+<div class="dice-dialog">
+    <h1 mat-dialog-title class="dice-dialog-content">Ajouter joueur</h1>
+    <div mat-dialog-content class="dice-dialog-content">
+      <mat-form-field  class="dice-dialog-content">
+        <mat-label>Min</mat-label>
+        <input matInput [(ngModel)]="data.min">
+      </mat-form-field>
+      <mat-form-field  class="dice-dialog-content">
+        <mat-label>Max</mat-label>
+        <input matInput [(ngModel)]="data.max">
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="dice-dialog-content">
+      <button mat-button  [mat-dialog-close]>Annuler</button>
+      <button mat-button  color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    </div>
+  </div>

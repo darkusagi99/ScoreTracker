@@ -32,7 +32,7 @@ export class DiceComponent {
   }
 
   // Add a dice in a list
-  addDice(diceBox : DiceBox, minValue : number, maxValue : number) : void {
+  addDice(diceBox : DiceBox) : void {
 
     var TmpDice : Dice = {id : "", min : 1, max : 6};
 
@@ -44,7 +44,7 @@ export class DiceComponent {
 
 		// Manage return value
 		dialogRef.afterClosed().subscribe(result => {
-			if (result != undefined && result.trim().length > 0) {
+			if (result != undefined) {
 				// add dice in list
 				this.diceService.addDice(diceBox, result.min, result.max);
 			}
