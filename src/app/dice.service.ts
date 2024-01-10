@@ -93,35 +93,51 @@ export class DiceService {
   // Roll the dices from a list
   rollDiceList(diceBox : DiceBox) : string {
 
-    // Roll results
-    var rollResults : string = "Tirage : ";
-    var rollTotal : number = 0;
-    var rollList : string = "";
-
-    var tmpScale : number = 0;
-    var currentResult : number = 0;
-
     // Search diceBox
     const indexOfBox = this.getBoxIndex(diceBox);
 
-    // Get the box and loop on it
-    const tmpList = this.diceList.at(indexOfBox)?.diceList;
-    if(tmpList) {
-      for(var currentDice of tmpList) {
-        // For each dice, get a random value and add to results
-        tmpScale = currentDice.max - currentDice.min + 1;
-        currentResult = Math.floor(Math.random() * tmpScale);
-        currentResult += currentDice.min;
+    // Return result
+    return this.getDiceListResult(indexOfBox);
 
-        rollTotal += currentResult;
-        rollList = rollList + "  " + currentResult.toString() + "  ";
+  }
 
-      }
-    }
+  rollLoneDiceList() : string {
+
+    // Search diceBox
+    const indexOfBox = 0;
 
     // Return result
-    return rollResults + rollTotal.toString() + " (" + rollList.trim() + ")";
+    return this.getDiceListResult(indexOfBox);
 
+  }
+
+  private getDiceListResult(indexOfBox: number) : string {
+
+        // Roll results
+        var rollResults : string = "Tirage : ";
+        var rollTotal : number = 0;
+        var rollList : string = "";
+    
+        var tmpScale : number = 0;
+        var currentResult : number = 0;
+    
+        // Get the box and loop on it
+        const tmpList = this.diceList.at(indexOfBox)?.diceList;
+        if(tmpList) {
+          for(var currentDice of tmpList) {
+            // For each dice, get a random value and add to results
+            tmpScale = currentDice.max - currentDice.min + 1;
+            currentResult = Math.floor(Math.random() * tmpScale);
+            currentResult += currentDice.min;
+    
+            rollTotal += currentResult;
+            rollList = rollList + "  " + currentResult.toString() + "  ";
+    
+          }
+        }
+    
+        // Return result
+        return rollResults + rollTotal.toString() + " (" + rollList.trim() + ")";
   }
 
   // Private utility method - Find DiceBox

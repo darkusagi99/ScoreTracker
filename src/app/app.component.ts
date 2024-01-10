@@ -70,12 +70,8 @@ export class AppComponent {
 
 		if (this.configurationMode == false && this.diceService.getDiceList().length == 1) {
 			// Only one dice roll possible > Show result
-			alert("Mode normal");
-			// Get dice result
-			//diceService.rollDiceList;
-
-			// Display result in snackbar
-			this.snackBar.open("Roll ONE", "Fermer", { duration: 7000, })
+			// Get dice result and Display result in snackbar
+			this.snackBar.open(this.diceService.rollLoneDiceList(), "Fermer", { duration: 7000, })
 
 		} else {
 			// Show Dice modal
