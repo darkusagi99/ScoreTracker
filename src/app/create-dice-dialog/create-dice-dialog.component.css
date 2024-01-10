@@ -1,0 +1,11 @@
+.dice-dialog {
+	width: 100%;
+	align-items: center;
+}
+
+.dice-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 100%;
+}

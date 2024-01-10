@@ -3,11 +3,11 @@
     <div mat-dialog-content class="dice-dialog-content">
       <mat-form-field  class="dice-dialog-content">
         <mat-label>Min</mat-label>
-        <input matInput [(ngModel)]="data.min">
+        <input matInput [(ngModel)]="data.min" onlyNumber>
       </mat-form-field>
       <mat-form-field  class="dice-dialog-content">
         <mat-label>Max</mat-label>
-        <input matInput [(ngModel)]="data.max">
+        <input matInput [(ngModel)]="data.max" onlyNumber>
       </mat-form-field>
     </div>
     <div mat-dialog-actions class="dice-dialog-content">

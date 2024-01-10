@@ -5,12 +5,13 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Dice } from '../dice';
+import { OnlyNumberDirective } from '../only-number.directive';
 
 @Component({
   selector: 'app-create-dice-dialog',
   templateUrl: './create-dice-dialog.component.html',
   styleUrls: ['./create-dice-dialog.component.css'],
-  imports:[MatFormFieldModule, MatInputModule, FormsModule, MatDialogModule, MatButtonModule],
+  imports:[MatFormFieldModule, MatInputModule, FormsModule, MatDialogModule, MatButtonModule, OnlyNumberDirective],
   standalone: true
 })
 export class CreateDiceDialogComponent {

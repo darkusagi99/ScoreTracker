@@ -19,6 +19,7 @@ import { CreatePlayerDialogComponent } from './create-player-dialog/create-playe
 import { UpdateScoreDialogComponent } from './update-score-dialog/update-score-dialog.component';
 import { DiceComponent } from './dice/dice.component';
 import { CreateDiceDialogComponent } from './create-dice-dialog/create-dice-dialog.component';
+import { OnlyNumberDirective } from './only-number.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { CreateDiceDialogComponent } from './create-dice-dialog/create-dice-dial
   imports: [
     BrowserModule, MatIconModule, MatButtonToggleModule, MatButtonModule, MatCardModule, 
     MatToolbarModule, PlayerComponent, MatSnackBarModule, BrowserAnimationsModule, MatDialogModule,
-    CreatePlayerDialogComponent, UpdateScoreDialogComponent, CreateDiceDialogComponent
+    CreatePlayerDialogComponent, UpdateScoreDialogComponent, CreateDiceDialogComponent, OnlyNumberDirective
   ],
   providers: [],
   bootstrap: [AppComponent]
