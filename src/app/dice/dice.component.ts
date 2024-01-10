@@ -5,6 +5,7 @@ import { DiceService } from '../dice.service';
 import { DiceBox } from '../diceBox';
 import { CreateDiceDialogComponent } from '../create-dice-dialog/create-dice-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dice',
@@ -17,7 +18,7 @@ export class DiceComponent {
   diceLists : DiceBox[];
 
   // Constructor
-  constructor(public dialog: MatDialog, public diceService : DiceService) {
+  constructor(public snackBar: MatSnackBar, public dialog: MatDialog, public diceService : DiceService) {
     this.diceLists = diceService.getDiceList();
   }
 
@@ -58,8 +59,8 @@ export class DiceComponent {
   }
 
   // Roll the dices from a list
-  rollDiceList(diceBox : DiceBox) : string {
-    return this.diceService.rollDiceList(diceBox);
+  rollDiceList(diceBox : DiceBox) {
+    this.snackBar.open(this.diceService.rollDiceList(diceBox), "Fermer", { duration: 7000, });
   }
 
 }

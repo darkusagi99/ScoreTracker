@@ -1,5 +1,5 @@
 
-	<mat-card class="player-card" *ngFor="let player of players">
+	<mat-card class="player-card" *ngFor="let player of players"  (dblclick)="updateScore(player)">
 			
 			<!-- CARD Header -->
 		<mat-card-header>
@@ -20,7 +20,7 @@
 			</button>
 			
 			
-			<span  class="player-card-valign player-card-score" (dblclick)="updateScore(player)" >Score : {{player.score}}</span>
+			<span  class="player-card-valign player-card-score">Score : {{player.score}}</span>
 			
 			
 			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score" (click)="increaseScore(player)">

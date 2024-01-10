@@ -65,7 +65,7 @@ export class AppComponent {
 
 	}
 
-	// Roll Dice button action - TODO
+	// Roll Dice button action
 	openDice() : void {
 
 		if (this.configurationMode == false && this.diceService.getDiceList().length == 1) {
@@ -78,7 +78,7 @@ export class AppComponent {
 			const dialogRef = this.dialog.open(DiceComponent, {
 				width : '90%'
 			})
-			alert("Mode Config");
+			dialogRef.componentInstance.configurationMode = this.configurationMode;
 
 		}
 
