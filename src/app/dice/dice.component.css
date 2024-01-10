@@ -3,7 +3,6 @@
   }
 
 .dice-card {
-	width: 100%;
 	align-items: center;
 }
 
@@ -20,9 +19,8 @@
 }
 
 
-.dice-card-score {
+.dice-card-label {
 	font-size:20px;
-	flex:5 1;
     justify-content: center;
     text-align:center;
 }

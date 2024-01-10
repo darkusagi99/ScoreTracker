@@ -23,7 +23,7 @@
         <mat-card class="dice" *ngFor="let currentDice of currentDiceBox.diceList">
                 <!-- CARD Body -->
             <mat-card-content class="dice-card-content" layout="row" layout-align="space-between center">
-                <span  class="dice-card-valign dice-card-label"  >{{diceService.getDiceLabel(currentDice)}}</span>
+                <span  class="dice-card-valign dice-card-label">{{diceService.getDiceLabel(currentDice)}}</span>
                 <button mat-icon-button  color="warn" class="dice-card-valign" aria-label="Delete Dice"  *ngIf="configurationMode" (click)="removeDice(currentDiceBox, currentDice)">
                     <mat-icon>delete</mat-icon>
                 </button>
