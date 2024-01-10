@@ -1,0 +1,33 @@
+.dice {
+    display: inline-block;
+  }
+
+.dice-card {
+	width: 100%;
+	align-items: center;
+}
+
+
+.dice-card-valign {
+	vertical-align: middle;
+}
+
+.dice-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 100%;
+}
+
+
+.dice-card-score {
+	font-size:20px;
+	flex:5 1;
+    justify-content: center;
+    text-align:center;
+}
+
+
+.dice-card-name {
+	font-size:32px;
+}

@@ -82,7 +82,7 @@ export class DiceService {
         return object.id === dice.id;
       });
 
-      if (indexOfDice && indexOfDice !== -1) {
+      if (indexOfDice!==undefined && indexOfDice !== -1) {
         this.diceList.at(indexOfBox)?.diceList.splice(indexOfDice, 1);
       }
     }

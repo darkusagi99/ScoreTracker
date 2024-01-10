@@ -1,5 +1,5 @@
 
-	<mat-card class="player-card" *ngFor="let player of players"  (dblclick)="updateScore(player)">
+	<mat-card class="player-card" *ngFor="let player of players"  (dblclick)="configurationMode ? null : updateScore(player)">
 			
 			<!-- CARD Header -->
 		<mat-card-header>
@@ -15,7 +15,7 @@
 			<!-- CARD Body -->
 		<mat-card-content class="player-card-content" layout="row" layout-align="space-between center">
 		
-			<button mat-icon-button  class="player-card-valign" aria-label="Decrease Score" (click)="decreaseScore(player)">
+			<button mat-icon-button  class="player-card-valign" aria-label="Decrease Score" (click)="configurationMode ? null : decreaseScore(player)">
 				<mat-icon>remove_circle_outline</mat-icon>
 			</button>
 			
@@ -23,7 +23,7 @@
 			<span  class="player-card-valign player-card-score">Score : {{player.score}}</span>
 			
 			
-			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score" (click)="increaseScore(player)">
+			<button mat-icon-button  class="player-card-valign" aria-label="Increase Score" (click)="configurationMode ? null : increaseScore(player)">
 				<mat-icon>add_circle_outline</mat-icon>
 			</button>
 
